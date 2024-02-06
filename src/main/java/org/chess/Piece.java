@@ -1,11 +1,15 @@
 package org.chess;
 
+import org.chess.gui.MainFrame;
+
+import javax.swing.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Map;
 
 public abstract class Piece {
-
+    ImageIcon image;
+    protected String pieceName;
     protected ArrayList<Square> travelSquares;
     protected Square square;
     protected byte value; // the value of the piece as a score

@@ -1,5 +1,6 @@
 package org.chess;
 
+import org.chess.gui.MainFrame;
 import org.chess.pieces.*;
 
 public class Board {
@@ -7,13 +8,15 @@ public class Board {
     private final int columns = 8;
     private Piece[][] content;// = new Piece[rows][columns];
 
-
+    public MainFrame frame;
 
     Board() {
         this.content = new Piece[rows][columns];
         initBlackTeamTop();
         initWhiteTeamBottom();
+        frame = new MainFrame();
     }
+
 
 
     private void initBlackTeamTop() {

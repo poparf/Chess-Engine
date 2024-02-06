@@ -9,9 +9,15 @@ import java.util.ArrayList;
 
 public class Pawn extends Piece {
 
+
+
    public Pawn(Board board, Square square, Team team) {
       super(board, square, team);
       this.setTravelSquares();
+      if(this.teamColor == Team.WHITE)
+         this.pieceName = "White_Pawn_" + (this.square.getCol() + 1);
+      else
+         this.pieceName = "Black_Pawn_" + (this.square.getCol() + 1);
    }
 
 
@@ -23,6 +29,7 @@ public class Pawn extends Piece {
          throw new IllegalArgumentException();
 
       this.board.update(this, newSquare);
+      this.board.frame.movePiece(this.pieceName, square.getRow(), square.getCol(), newSquare.getRow(), newSquare.getCol());
       this.square = newSquare;
       this.setTravelSquares();
    }

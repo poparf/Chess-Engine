@@ -8,13 +8,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        MainFrame mainFrame = new MainFrame();
         Board mainBoard = new Board();
         //mainBoard.printBoard();
 
-        //Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        /*while(true) {
+        while(true) {
             try {
                 mainBoard.printBoard();
                 System.out.println();
@@ -36,7 +35,7 @@ public class Main {
             } catch(Throwable t) {
                 System.out.println(t.getMessage());
             }
-        }*/
+        }
 
 
 

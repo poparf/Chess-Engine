@@ -23,4 +23,9 @@ public class Queen extends Piece {
     public Piece clonePiece() {
         return new Queen(this);
     }
+
+    @Override
+    public void setTravelSquares() {
+
+    }
 }

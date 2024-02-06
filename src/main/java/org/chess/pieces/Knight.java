@@ -23,4 +23,9 @@ public class Knight extends Piece {
     public Piece clonePiece() {
         return new Knight(this);
     }
+
+    @Override
+    public void setTravelSquares() {
+
+    }
 }

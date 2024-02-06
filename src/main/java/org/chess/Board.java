@@ -67,7 +67,7 @@ public class Board {
             System.out.println();
             for (int j = 0; j < columns; j++) {
                 if(this.content[i][j] != null)
-                    System.out.print(this.content[i][j].getClass().getName() + " ");
+                    System.out.print(this.content[i][j].getClass().getName().substring(17) + " ");
                 else {
                     System.out.print("null");
                 }
@@ -82,5 +82,19 @@ public class Board {
 
     public int getColumns() {
         return columns;
+    }
+
+    public boolean isThereAPiece(int row, int col) {
+        return this.content[row][col] != null;
+    }
+
+    // Se face oare upcasting ?
+    public void update(Piece piece, Square newSquare) {
+        this.content[piece.getSquare().getRow()][piece.getSquare().getCol()] = null;
+        this.content[newSquare.getRow()][newSquare.getCol()] = piece;
+    }
+
+    public void processMove(Square square, Square newSquare) {
+        this.content[square.getRow()][square.getCol()].move(newSquare);
     }
 }

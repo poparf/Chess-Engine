@@ -1,5 +1,7 @@
 package org.chess;
 
+import java.util.Objects;
+
 public class Square {
     // XY represents the coordinates of the place on window
     private int x;
@@ -21,6 +23,31 @@ public class Square {
 
         this.row = row;
         this.col = col;
+    }
+
+    public Square(int row, int col) {
+     if(row < 0 || col < 0)
+         throw new IllegalArgumentException();
+
+     this.row = row;
+     this.col = col;
+    }
+
+    private void setCoordinates() {
+        // logic to set the coordinates of the window with respect to each square
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Square square = (Square) o;
+        return x == square.x && y == square.y && row == square.row && col == square.col;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, row, col);
     }
 
     Square(Square s) {

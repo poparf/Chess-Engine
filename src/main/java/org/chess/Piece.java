@@ -1,12 +1,12 @@
 package org.chess;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Map;
+
 public abstract class Piece {
 
-    // [ [1,3], [4,5] ]
-    // Linked list
-    // fast delete and fast insertion
-    // search can be sequential O(n)
-
+    protected ArrayList<Square> travelSquares;
     protected Square square;
     protected byte value; // the value of the piece as a score
     protected Board board;
@@ -16,6 +16,7 @@ public abstract class Piece {
         this.board = board;
         this.square = square;
         this.teamColor = teamColor;
+        this.travelSquares = new ArrayList<>();
     }
     public abstract void move(Square newSquare);
     public abstract Piece clonePiece();
@@ -26,6 +27,8 @@ public abstract class Piece {
         this.teamColor = p.teamColor;
         this.value = p.value;
     }
+
+
 
     public Square getSquare() {
         return square;
@@ -38,4 +41,11 @@ public abstract class Piece {
     public Team getTeamColor() {
         return teamColor;
     }
+
+    public ArrayList<Square> getTravelSquares() {
+        return this.travelSquares;
+    }
+
+    abstract public void setTravelSquares();
+
 }

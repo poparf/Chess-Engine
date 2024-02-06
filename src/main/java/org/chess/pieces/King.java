@@ -37,4 +37,9 @@ public class King extends Piece {
     public Piece clonePiece() {
         return new King(this);
     }
+
+    @Override
+    public void setTravelSquares() {
+
+    }
 }

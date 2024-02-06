@@ -23,4 +23,9 @@ public class Rock extends Piece {
     public Piece clonePiece() {
         return new Rock(this);
     }
+
+    @Override
+    public void setTravelSquares() {
+
+    }
 }

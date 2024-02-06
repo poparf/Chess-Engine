@@ -22,4 +22,9 @@ public class Bishop extends Piece {
     public Piece clonePiece() {
         return new Bishop(this);
     }
+
+    @Override
+    public void setTravelSquares() {
+
+    }
 }

@@ -14,7 +14,7 @@ public class Board {
         this.content = new Piece[rows][columns];
         initBlackTeamTop();
         initWhiteTeamBottom();
-        frame = new MainFrame();
+        frame = new MainFrame(this);
     }
 
 

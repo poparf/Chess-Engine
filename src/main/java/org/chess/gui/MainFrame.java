@@ -1,4 +1,7 @@
 package org.chess.gui;
+import org.chess.Board;
+import org.chess.Square;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -15,13 +18,15 @@ public class MainFrame extends JFrame {
     private String selectedPiece = null;
     private int selectedRow = -1;
     private int selectedCol = -1;
+    private Board boardPtr;
 
     private HashMap<String, ChessPieceGUI> pieceGUIMap = new HashMap<String, ChessPieceGUI>();
 
     JPanel[][] chessSquares = new JPanel[8][8];
     //int windowWidth = ;
     //int windowHeight = ;
-    public MainFrame() {
+    public MainFrame(Board board) {
+        this.boardPtr = board;
         this.setTitle("Chess");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // when hiting the X button it closes the app
         this.setResizable(false); // prevent this from being resized
@@ -104,9 +109,12 @@ public class MainFrame extends JFrame {
             }
         } else {
             // Second click, move the piece
+
+            this.boardPtr.processMove(new Square(selectedRow,selectedCol), new Square(row,col));
             this.movePiece(selectedPiece,selectedRow, selectedCol, row, col);
 
             // Reset the selected position
+            this.selectedPiece = null;
             selectedRow = -1;
             selectedCol = -1;
         }
